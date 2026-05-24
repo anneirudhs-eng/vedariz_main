@@ -1,39 +1,43 @@
-**Welcome to your Base44 project** 
+# Vedariz Website
 
-**About**
+React/Vite single-page website for Vedariz, configured for Firebase Hosting.
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+Read [PROJECT_CONTEXT.md](./PROJECT_CONTEXT.md) before making structural, build, hosting, or AI-assisted changes.
 
-This project contains everything you need to run your app locally.
+## Quick Start
 
-**Edit the code in your local development environment**
-
-Any change pushed to the repo will also be reflected in the Base44 Builder.
-
-**Prerequisites:** 
-
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
-
-```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+```bash
+npm install
+npm run dev
 ```
 
-Run the app: `npm run dev`
+## Build
 
-**Publish your changes**
+```bash
+npm run build
+```
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+The production website is generated into `dist/`.
 
-**Docs & Support**
+## Firebase Hosting
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+Firebase Hosting is configured in `firebase.json` to serve `dist/` and rewrite all routes to `index.html`.
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+GitHub Actions are configured to build and deploy automatically:
+
+- Pushes to `main` deploy to the live Firebase Hosting channel.
+- Pull requests create Firebase Hosting previews.
+
+Required GitHub Actions secret:
+
+```text
+FIREBASE_SERVICE_ACCOUNT_VEDARIZ_WEBSITE
+```
+
+For a Firebase Console upload of the already-built site, the minimum required files are:
+
+```text
+dist/
+firebase.json
+.firebaserc
+```

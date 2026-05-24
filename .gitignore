@@ -15,6 +15,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.npm-cache
+.firebase
+firebase-debug.log*
+.vite
+coverage
 
 # Editor directories and files
 .vscode/*
@@ -28,4 +33,3 @@ dist-ssr
 *.sw?
 
 .env
-.vite

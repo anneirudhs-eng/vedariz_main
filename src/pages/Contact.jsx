@@ -32,7 +32,7 @@ export default function Contact() {
     // Also attempt to send email notification
     base44.integrations.Core.SendEmail({
       to: 'a.sundararajan@vedariz.com',
-      subject: `[VEDARIZ Contact] ${form.supportType || 'Inquiry'} — ${form.name}`,
+      subject: `[VEDARIZ Contact] ${form.supportType || 'Inquiry'} - ${form.name}`,
       body: `Name: ${form.name}\nEmail: ${form.email}\nOrganization: ${form.organization}\nType of Support: ${form.supportType}\nPreferred Meeting: ${form.meeting}\n\n${form.message}`,
     }).catch(() => {});
     toast.success('Message sent. We will be in touch shortly.');
